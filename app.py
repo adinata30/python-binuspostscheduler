@@ -87,7 +87,4 @@ def main():
 
 
 if __name__=="__main__":
-    test = datetime.datetime.now()
-    
-    print(test+delta)
     main()
