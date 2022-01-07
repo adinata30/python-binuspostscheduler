@@ -57,28 +57,28 @@ def main():
                     delta = datetime.timedelta(days=1)
                     new_date = date+delta
                     new_date = new_date.strftime('%d-%m-%Y %H:%M:%S')
-                    schedule.update({
+                    i.update({
                         'time':new_date
                     })
                 elif schedule_type =='Weekly':
                     delta = relativedelta(weeks=1)
                     new_date = date+delta
                     new_date = new_date.strftime('%d-%m-%Y %H:%M:%S')
-                    schedule.update({
+                    i.update({
                         'time':new_date
                     })
                 elif schedule_type =='Monthly':
                     delta = relativedelta(months=1)
                     new_date = date+delta
                     new_date = new_date.strftime('%d-%m-%Y %H:%M:%S')
-                    schedule.update({
+                    i.update({
                         'time':new_date
                     })
                 elif schedule_type =='Yearly':
                     delta = relativedelta(years=1)
                     new_date = date+delta
                     new_date = new_date.strftime('%d-%m-%Y %H:%M:%S')
-                    schedule.update({
+                    i.update({
                         'time':new_date
                     })
 
