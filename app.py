@@ -4,6 +4,7 @@ import time
 import datetime
 import tweepy
 import constant
+from dateutil.relativedelta import relativedelta
 from media import Media
 from firebase_admin import credentials,firestore
 
@@ -53,12 +54,40 @@ def main():
                 if schedule_type =='Once':
                     i.delete()
                 elif schedule_type == 'Daily':
-                    pass
-                
+                    delta = datetime.timedelta(days=1)
+                    new_date = date+delta
+                    new_date = new_date.strftime('%d-%m-%Y %H:%M:%S')
+                    schedule.update({
+                        'time':new_date
+                    })
+                elif schedule_type =='Weekly':
+                    delta = relativedelta(weeks=1)
+                    new_date = date+delta
+                    new_date = new_date.strftime('%d-%m-%Y %H:%M:%S')
+                    schedule.update({
+                        'time':new_date
+                    })
+                elif schedule_type =='Monthly':
+                    delta = relativedelta(months=1)
+                    new_date = date+delta
+                    new_date = new_date.strftime('%d-%m-%Y %H:%M:%S')
+                    schedule.update({
+                        'time':new_date
+                    })
+                elif schedule_type =='Yearly':
+                    delta = relativedelta(years=1)
+                    new_date = date+delta
+                    new_date = new_date.strftime('%d-%m-%Y %H:%M:%S')
+                    schedule.update({
+                        'time':new_date
+                    })
 
 
     
 
 
 if __name__=="__main__":
+    test = datetime.datetime.now()
+    
+    print(test+delta)
     main()
